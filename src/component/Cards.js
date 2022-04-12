@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Cards = ({ label, link, totalTime, dishType, image, cuisineType }) => {
   return (
-    <Link to={`/database/${link}`} className="card text-capitalize">
+    <Link to={`/recipe/${link}`} className="card common-link text-capitalize">
       <img src={image} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{label}</h5>

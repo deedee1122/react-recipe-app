@@ -1,4 +1,8 @@
-.active{
-  color:blue !important
+.active {
+  color: blue !important;
+}
 
+.common-link {
+  text-decoration: none;
+  color: black;
 }

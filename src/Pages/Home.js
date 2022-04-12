@@ -9,7 +9,7 @@ const Home = ({ setQ, result, isLoading }) => {
 
   return (
     <div>
-      <h3 className="text-center my-3">Food Database</h3>
+      <h3 className="text-center my-3">Food Recipe</h3>
       <style jsx-="true">
         {`
           .grid{
@@ -30,12 +30,10 @@ const Home = ({ setQ, result, isLoading }) => {
               let { label, totalTime, dishType, image, cuisineType } =
                 data?.recipe || [];
               let { self } = data?._links || [];
-              let url =
-                "https://api.edamam.com/api/recipes/v2/b79327d05b8e5b838ad6cfd9576b30b6?type=public&app_id=093e738d&app_key=1bc8cecb606b726eeef06d2c02d13149";
-              let expression1 = /v2\/(.*)/;
-              let expression2 = /.*?type(.*?)/g;
-              // console.log(url.match(expression1)[1]);
-              console.log(url.match(expression1)[0]);
+              let idNumber = self?.href
+                ?.match(/v2(.*?)type/)[1]
+                .slice(1)
+                .slice(0, -1);
               return (
                 <Cards
                   key={y}
@@ -43,7 +41,7 @@ const Home = ({ setQ, result, isLoading }) => {
                   totalTime={totalTime}
                   dishType={dishType}
                   image={image}
-                  link={self?.href}
+                  link={idNumber}
                   cuisineType={cuisineType}
                 />
               );

@@ -40,13 +40,21 @@ function App() {
             element={<Home isLoading={isLoading} result={result} setQ={setQ} />}
           />
           <Route
-            path="/database/:id"
-            element={
-              <Details isLoading={isLoading} result={result} setQ={setQ} />
-            }
+            path="/recipe/:id"
+            element={<Details isLoading={isLoading} result={result} />}
           />
           <Route path="/nutrition" element={<Nutrition />} />
-          <Route path="/recipe" element={<Recipe />} />
+          <Route
+            path="/database"
+            element={
+              <Recipe
+                q={q}
+                setQ={setQ}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
