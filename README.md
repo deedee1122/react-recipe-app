@@ -1,0 +1,1 @@
+* npm install bootstrap @popperjs/core react-router-dom --save 
